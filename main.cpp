@@ -4,24 +4,26 @@ constexpr int N_ELEMENTS = 100;
 
 int main()
 {
-    int *b = new int[NELEMENTS]; //konstans valtozo neve hibas
-    std::cout << '1-100 ertekek duplazasa' //hianyza sorvegjel, szoveg nem dupla idezojelek kozt talalhato, soremeles hianya
-    for (int i = 0;) //hianyos ciklusfej
+    int *b = new int[N_ELEMENTS]; //konstans valtozo neve hibas
+    std::cout << "1-100 ertekek duplazasa" << std::endl; //hianyzo sorvegjel, szoveg nem dupla idezojelek kozt talalhato, soremeles szebbe esztetikusabba teszi a kiirast
+    for (int i = 1; i < N_ELEMENTS; i++) //hianyos ciklusfeltetel, i-nek 1-nek kell lennie
     {
-        b[i] = i * 2; //hianyzo dereferencia
+        b[i] = i * 2;
     }
-    for (int i = 0; i; i++) //hianyos ciklusfej
+    for (int i = 1; i< N_ELEMENTS; i++) //hianyos ciklusfeltetel
     {
-        std::cout << "Ertek:" //hianyzo sorvegjel
+        std::cout << "Ertek:"; //hianyzo sorvegjel, ertek kiirasa hianyzik
+        std::cout << b[i] << std::endl;
     }    
     std::cout << "Atlag szamitasa: " << std::endl;
-    int atlag; //int helyett double hasznalata, tizedesjegy levagas elkerulese vegett
-    for (int i = 0; i < N_ELEMENTS, i++) //','-t ';'-re kell cserelni
+    double atlag; //int helyett double hasznalata, tizedesjegy levagas elkerulese vegett
+    for (int i = 1; i < N_ELEMENTS; i++) //','-t ';'-re kell cserelni, ciklusvaltozo minden esetben 1-tol kell, hogy induljon
     {
-        atlag += b[i] //hianyzo sorvegjel, hianyzo dereferencia
+        atlag += b[i]; //hianyzo sorvegjel
     }
     atlag /= N_ELEMENTS;
     std::cout << "Atlag: " << atlag << std::endl;
     //hianyzo destruktor
+    delete[] b;
     return 0;
 }
