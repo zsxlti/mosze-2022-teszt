@@ -25,5 +25,6 @@ int main()
     std::cout << "Atlag: " << atlag << std::endl;
     //hianyzo destruktor
     delete[] b;
+    std::cout << "Ropog az alma a fogam alatt" << std::endl;
     return 0;
 }
